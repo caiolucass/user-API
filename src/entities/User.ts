@@ -1,5 +1,6 @@
 import {Column, Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn} from "typeorm";
-import {v4 as uuid} from "uuid"
+import {v4 as uuid} from "uuid";
+import {Exclude, Expose} from "class-transformer";
 
 @Entity("users")
 class User {
@@ -13,6 +14,7 @@ class User {
   @Column()
   email: string;
 
+  @Exclude()
   @Column()
   password: string;
 
@@ -24,6 +26,12 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({name: "user_name"})
+  userName(): string{
+    return `#${this.name}`;
+  }
+
 
   constructor(){
     if(!this.id){

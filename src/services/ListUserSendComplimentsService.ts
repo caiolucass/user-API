@@ -10,7 +10,6 @@ class ListUserSendComplimentsService {
                   userSender: user_id,
               },
           });
-
           return compliments;
     }
 }

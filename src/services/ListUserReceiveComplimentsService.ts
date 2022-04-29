@@ -9,9 +9,12 @@ class ListUserReceiveComplimentsService {
               where: {
                   userReceiver: user_id,
               },
+              relations:[
+                   "userSender", "userReceiver", "tag",
+              ],
           });
-
           return compliments;
     }
 }
+
 export {ListUserReceiveComplimentsService};

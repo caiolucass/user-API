@@ -41,7 +41,7 @@ class AuthenticateUserService {
             email: user.email,
         }, "434d86d7a2d194e6adec53075b5374ca", {
             subject: user.id,
-            expiresIn: "1d"
+            expiresIn: "1d",
         });
         return userToken;
     }
